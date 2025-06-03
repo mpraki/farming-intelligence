@@ -1,7 +1,10 @@
 import pandas as pd
 import os
 
-def save_user_input(name, age, soil_type, soil_quality, filename='user_inputs.csv'):
+from fontTools.feaLib import location
+
+
+def save_user_input(name, age, soil_type, soil_quality, location, filename='user_inputs.csv'):
     """
     Save user input to a CSV file using pandas. Creates the file with headers if it doesn't exist.
     """
@@ -9,8 +12,10 @@ def save_user_input(name, age, soil_type, soil_quality, filename='user_inputs.cs
         'Name': [name],
         'Age': [age],
         'Soil Type': [soil_type],
-        'Soil Quality': [soil_quality]
+        'Soil Quality': [soil_quality],
+        'Location': [location]
     }
+
     df = pd.DataFrame(data)
     if not os.path.isfile(filename):
         df.to_csv(filename, index=False)
