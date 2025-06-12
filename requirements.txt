@@ -1,7 +1,13 @@
 numpy
-pandas
+pandas~=2.2.3
 scikit-learn
 matplotlib
 seaborn
-requests
+requests~=2.32.3
 flask
+google-generativeai
+google-genai
+
+fonttools~=4.58.1
+protobuf~=5.29.5
+streamlit~=1.45.1

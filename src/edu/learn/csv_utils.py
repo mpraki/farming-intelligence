@@ -1,7 +1,6 @@
-import pandas as pd
 import os
 
-from fontTools.feaLib import location
+import pandas as pd
 
 
 def save_user_input(name, age, soil_type, soil_quality, location, filename='user_inputs.csv'):
@@ -22,6 +21,7 @@ def save_user_input(name, age, soil_type, soil_quality, location, filename='user
     else:
         df.to_csv(filename, mode='a', header=False, index=False)
 
+
 def get_line_chart_data(filename='user_inputs.csv'):
     """
     Read the CSV file and return a DataFrame for line chart plotting.
@@ -31,7 +31,8 @@ def get_line_chart_data(filename='user_inputs.csv'):
         return df
     else:
         return pd.DataFrame(columns=['Name', 'Age', 'Soil Type', 'Soil Quality'])
-    
+
+
 def get_bar_chart_data(filename='user_inputs.csv'):
     """
     Read the CSV file and return a DataFrame for bar chart plotting.
