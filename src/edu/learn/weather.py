@@ -1,9 +1,13 @@
+import os
 import json
 
 from google import genai
 from google.genai import types
 
-with open("config.json", "r") as config_file:
+# Get the directory of the current script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+config_path = os.path.join(script_dir, "config.json")
+with open(config_path, "r") as config_file:
     config = json.load(config_file)
     api_key = config["GOOGLE_API_KEY"]
 
@@ -40,7 +44,7 @@ response = client.models.generate_content(
     config=config,
 )
 
-print(response)
+print('response: ',response)
 
 for part in response.candidates[0].content.parts:
     function_call = part.function_call
