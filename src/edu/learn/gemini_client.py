@@ -1,11 +1,13 @@
-import json
+import json, os
 
 from google import genai
 from google.genai import types
 
 
 def get_gemini_api_url(text: str) -> str:
-    with open("config.json", "r") as config_file:
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    config_path = os.path.join(script_dir, "config.json")
+    with open(config_path, "r") as config_file:
         config = json.load(config_file)
         api_key = config["GOOGLE_API_KEY"]
 
